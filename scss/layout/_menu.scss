@@ -1,0 +1,130 @@
+.menu {
+  &__toggle {
+    display: none;
+
+    &:checked {
+      + .menu__label {
+        .menu__line {
+          display: none;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+          top: 11px;
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+          bottom: 11px;
+        }
+
+        ~ .menu__list {
+          right: 0;
+          top: 65px;
+        }
+      }
+    }
+  }
+
+  &__label {
+    @include size(35px, 25px);
+    @include pos(relative, $t: 20px, $r: 15px);
+
+    display: block;
+
+    &::before,
+    &::after {
+      @include size(100%, 2px);
+      @include pos($l: 0);
+
+      content: "";
+      background: var(--purpule);
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__line {
+    @include size(100%, 2px);
+    @include pos($l: 0, $t: 46%);
+
+    background: var(--purpule);
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+  }
+}
+
+// mobile
+@media (max-width: $mobile) {
+  .menu {
+    &__list {
+      @include size(190px, 50%);
+      @include pos(fixed, $t: 65px, $r: -190px);
+
+      background-color: #fff;
+      opacity: 0.8;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}
+
+// desktop
+@media (min-width: $mobile) {
+  .menu {
+    &__label {
+      display: none;
+    }
+
+    &__list {
+      @include size(415px, 100%);
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__link {
+      color: #fff;
+      position: relative;
+      transition: all 0.3s;
+
+      &::after {
+        @include size(0, 2px);
+        @include align(false, true, absolute);
+
+        content: "";
+        background-color: var(--orange);
+        bottom: -10px;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        color: var(--orange);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.home {
+    background: #f2f2f2;
+    color: #333;
+&__container{
+    overflow: hidden;
+}
+    &__uptitle {
+        font-family: $font-title;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: uppercase;
+        padding-top: 45px;
+        margin-bottom: 17px;
+    }
+
+    &__title {
+        font-family: $font-title;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        margin-bottom: 40px;
+    }
+
+    .box {
+        position: relative;
+        width: 355px;
+        height: 270px;
+        background: linear-gradient(225deg, rgba(48, 35, 174, 1) 0%, rgba(200, 109, 215, 1) 100%);
+        float: right;
+        margin-bottom: 50px;
+        margin-right: 0;
+        margin-top: 75px;
+    }
+
+    .wraper {
+        position: absolute;
+        width: 340px;
+        height: 270px;
+        background-image: url(../images/home/Bitmap.jpg);
+        @include pos($l:15px, $b:16px);
+
+
+        .oval {
+            @include size(58px);
+            @include pos(absolute, $l:0, $t:0, $r:0, $b:0);
+            background-color: #fff;
+            margin: auto;
+            border-radius: 50%;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-left: 13px solid #C86DD7;
+            border-bottom: 10px solid transparent;
+            @include pos(absolute, $l:6px, $t:0, $r:0, $b:0);
+            margin: auto;
+        }
+
+    }
+
+
+
+}
+
+@media (min-width: 500px) {
+    .home {
+
+        &__container {
+            display: flex;
+        }
+
+        &__uptitle {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        &__title {
+            font-size: 56px;
+            line-height: 64px;
+        }
+
+        .block_title {
+            max-width: 50%;
+            margin-right: 85px;
+        }
+
+        .block_box{
+            max-width: 50% ;
+            margin-left: 50px;
+        }
+
+        .box{
+            width: 705px;
+            height: 545px;
+            float: none;
+            
+        }
+        .wraper{
+            width: 670px;
+            height: 545px;
+        }
+
+        .wraper{
+            background-repeat: no-repeat;
+            background-size: cover;
+            @include pos(relative, $l:35px, $b:32px);
+            
+            .oval {
+                @include size(116px);
+                @include pos(absolute, $l:0, $t:0, $b:0);
+                background-color: #fff;
+                border-radius: 50%;
+            }
+            .triangle {
+                width: 0;
+                height: 0;
+                border-top: 20px solid transparent;
+                border-left: 30px solid #C86DD7;
+                border-bottom: 16px solid transparent;
+                @include pos(absolute, $l:6px, $t:0, $r:0, $b:0);
+            }
+        }
+
+       
+
+    }
+}

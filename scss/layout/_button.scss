@@ -1,0 +1,44 @@
+.button {
+  @include size(170px, 48px);
+
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--orange);
+  border: 1px solid var(--orange);
+  border-radius: 25px;
+  text-align: center;
+  display: inline-block;
+  line-height: 48px;
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.295063);
+  }
+
+  &--purpule {
+    background-color: var(--purpule);
+    border: 1px solid var(--purpule);
+  }
+}
+
+// desktop
+@media (min-width: $mobile) {
+  .button {
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.295063);
+    }
+
+    &--transparent,
+    &--purpule {
+      &:hover {
+        background-color: var(--orange);
+        border: 1px solid var(--orange);
+      }
+    }
+  }
+}

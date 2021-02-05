@@ -1,0 +1,87 @@
+.works {
+  padding: 40px 0 10px;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    @include size(50px, 100px);
+    @include pos($b: -4.5%, $r: 0, $z: 3);
+
+    content: "";
+    background: url(../images/about/about_oval_01.png) no-repeat;
+  }
+
+  &__block {
+    margin-top: 60px;
+  }
+
+  &__item {
+    margin-bottom: 55px;
+  }
+
+  &__img {
+    margin-bottom: 15px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font: 700 24px $font-title;
+    color: #333333;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      @include size(0, 8px);
+      @include pos($l: 0, $b: 1px);
+
+      content: "";
+      z-index: -1;
+      background-color: var(--purpule);
+      transition: all 0.3s;
+    }
+  }
+
+  &__info {
+    color: #333333;
+    opacity: 0.5;
+  }
+}
+
+// desktop
+@media (min-width: $mobile) {
+  .works {
+    padding-bottom: 45px;
+    &::after {
+      @include size(100px);
+      @include pos($b: -11.5%, $r: 65%, $z: 3);
+
+      content: "";
+      background: url(../images/about/about_oval_01-desktop.png) no-repeat;
+    }
+
+    &__text {
+      width: 50%;
+      margin: 0 auto;
+    }
+    &__block {
+      margin-top: 0;
+    }
+    &__item {
+      cursor: pointer;
+      padding: 35px;
+      margin-bottom: 0;
+
+      &:hover {
+        box-shadow: 16px 16px 48px rgba(0, 0, 0, 0.0994678);
+
+        .works__title {
+          &::after {
+            @include size(100%, 8px);
+          }
+        }
+      }
+    }
+  }
+}

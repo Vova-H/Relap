@@ -1,0 +1,62 @@
+.about {
+  @include pos(relative, $z: 2);
+  background-color: #3023ae;
+  color: #fff;
+  overflow: hidden;
+
+  &::before {
+    @include size(204px, 323px);
+    @include pos($b: -23%, $l: 0, $z: -1);
+
+    content: "";
+    background: url(../images/about/about_oval_02.png) no-repeat;
+  }
+
+  &::after {
+    @include size(70px, 140px);
+    @include pos($b: -12%, $r: 0, $z: -1);
+
+    content: "";
+    background: url(../images/about/about_oval_03.png) no-repeat;
+  }
+
+  &__wrap {
+    padding: 90px 0 80px;
+    z-index: 2;
+  }
+
+  &__subtitle {
+    font: 700 16px $font-title;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+}
+
+// desktop
+@media (min-width: $mobile) {
+  .about {
+    // min-height: 100vh;
+    position: relative;
+    padding: 100px 0;
+
+    &::before {
+      @include pos($b: -125px, $l: 0, $z: -1);
+    }
+
+    &::after {
+      @include size(140px);
+      @include pos($b: -85px, $r: 47%, $z: -1);
+
+      // content: "";
+      background: url(../images/about/about_oval_03-desktop.png) no-repeat;
+    }
+
+    &__wrap {
+      padding: 0;
+    }
+  }
+}
